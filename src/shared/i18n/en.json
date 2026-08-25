@@ -1,0 +1,932 @@
+{
+  "app": {
+    "bootScreen": {
+      "title": "Aplexica Portal"
+    },
+    "title": "Aplexica",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "errorRetry": "Try again",
+    "empty": "Nothing to show yet",
+    "sessionExpired": "Your session expired. Please relaunch from the tray menu.",
+    "bootstrap": {
+      "establishing": "Establishing local session…",
+      "failedTitle": "Couldn't establish a local session",
+      "failedBody": "The launch link couldn't be verified. Try again, or reopen Aplexica Portal from the tray menu.",
+      "retry": "Try again"
+    }
+  },
+  "deployMode": {
+    "local": "Local",
+    "localTooltip": "You are connected to aplexicad on this machine."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "events": "Events",
+    "rules": "Routing rules",
+    "conflicts": "Conflicts",
+    "conflictsBadge": "{count} unresolved conflicts",
+    "forking": "Forking",
+    "pending": "Pending projects",
+    "pendingBadge": "{count} pending projects",
+    "projects": "Projects",
+    "connect": "Connect to Cloud",
+    "backups": "Backups",
+    "settings": "Settings",
+    "transport": "Transport",
+    "help": "Help",
+    "onboarding": "Onboarding",
+    "group": {
+      "overview": "Overview",
+      "sync": "Sync",
+      "system": "System"
+    }
+  },
+  "connect": {
+    "title": "Connect to Aplexica Cloud",
+    "subtitle": "Pair this device with your Aplexica Cloud account to sync routing rules and manage it from anywhere.",
+    "loadError": "Couldn't load the cloud connection status.",
+    "notConfigured": {
+      "title": "Cloud plugin not installed",
+      "body": "This daemon doesn't have the Aplexica Cloud plugin configured, so there's nothing to pair yet. Install and enable the cloud plugin on this machine, then come back to this page.",
+      "hint": "The cloud plugin is an optional add-on that connects this device to app.aplexica.com.",
+      "docsLink": "Read the cloud setup guide"
+    },
+    "step": "Step {current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "steps": {
+      "getCode": {
+        "title": "Get a pairing code",
+        "body": "Open the Aplexica Cloud portal, click “Pair a new device,” and copy the one-time pairing code it shows you.",
+        "openPortal": "Open the cloud portal",
+        "note": "The code is valid for a few minutes — grab a fresh one if it expires before you finish."
+      },
+      "pasteCode": {
+        "title": "Paste the code",
+        "body": "Paste the pairing code from the cloud portal below. Optionally give this device a friendly name so you can recognize it later.",
+        "tokenLabel": "Pairing code",
+        "tokenPlaceholder": "Paste your pairing code (starts with eyJ…)",
+        "tokenRequired": "Paste the pairing code to continue.",
+        "deviceNameLabel": "Device name (optional)",
+        "deviceNamePlaceholder": "This device",
+        "deviceNameDefault": "This device"
+      },
+      "pair": {
+        "title": "Pair this device",
+        "body": "We'll exchange your pairing code for a device certificate and connect this machine to Aplexica Cloud.",
+        "submit": "Pair this device",
+        "pending": "Pairing… issuing your device certificate"
+      }
+    },
+    "errors": {
+      "title": "Pairing failed",
+      "remoteNotConfigured": "The cloud plugin isn't configured on this daemon. Install and enable the Aplexica Cloud plugin, then try again.",
+      "validation": "That code looks invalid or expired — generate a fresh one in the cloud portal.",
+      "pairFailed": "The server couldn't complete pairing. Your code may have expired or already been used.",
+      "generic": "Something went wrong while pairing. Please try again.",
+      "getNewCode": "Get a new code"
+    },
+    "success": {
+      "title": "Paired with Aplexica Cloud",
+      "subtitleConnected": "This device is paired and its relay session is connected.",
+      "subtitleDisconnected": "This device is paired, but its live relay session is disconnected.",
+      "badgeConnected": "Relay connected",
+      "badgeDisconnected": "Relay disconnected",
+      "deviceId": "Device ID",
+      "accountId": "Account ID",
+      "connState": "Relay connection",
+      "connStateValues": {
+        "connected": "Connected",
+        "connecting": "Connecting",
+        "starting": "Starting",
+        "disconnected": "Disconnected",
+        "unknown": "Unknown"
+      },
+      "rulesNote": "Routing rules now sync from Aplexica Cloud. Manage them from the cloud portal and they'll apply here automatically.",
+      "relayDisconnectedNote": "This machine is paired, but the daemon is not currently holding a live relay session. Cloud sync resumes when the daemon reconnects.",
+      "verify": "Test connection",
+      "verifying": "Testing…",
+      "verifyConnected": "Connected to the cloud relay.",
+      "verifyDisconnected": "Not currently connected to the cloud relay.",
+      "verifyError": "Couldn't reach the cloud relay. Please try again.",
+      "rePair": "Pair a different device / re-pair",
+      "unpairTitle": "Disconnect from Aplexica Cloud",
+      "unpairNote": "Removes this device's credentials and stops cloud sync here. To also remove it from your account, open the cloud portal's Devices page and click Revoke.",
+      "unpair": "Unpair this device",
+      "unpairConfirm": "Yes, disconnect",
+      "unpairing": "Disconnecting…",
+      "unpairError": "Couldn't disconnect. Please try again."
+    }
+  },
+  "topbar": {
+    "search": "Search",
+    "searchPlaceholder": "Search (coming soon)",
+    "logout": "Log out",
+    "menuToggle": "Toggle sidebar",
+    "menuClose": "Close navigation"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Live status of the Aplexica daemon and the agents it keeps in sync.",
+    "daemon": {
+      "title": "Daemon",
+      "version": "Version",
+      "pid": "PID",
+      "paused": "Paused",
+      "running": "Running",
+      "uptime": "Uptime",
+      "state": "State",
+      "pendingImports": "Pending imports",
+      "pause": "Pause",
+      "resume": "Resume"
+    },
+    "agents": {
+      "title": "Agents",
+      "none": "No agents detected yet."
+    },
+    "analytics": {
+      "window": "Last {count} sync events",
+      "eventsCount": "{count} sync events",
+      "topAgent": "Top: {agent} · {count} syncs",
+      "empty": "No sync activity yet.",
+      "agentActivity": {
+        "title": "Agent sync activity"
+      },
+      "direction": {
+        "title": "Sync in / out by agent",
+        "inbound": "In",
+        "outbound": "Out"
+      },
+      "kinds": {
+        "conversation": "Conversations",
+        "memory": "Memory",
+        "tool": "Tools",
+        "skill": "Skills",
+        "other": "Other"
+      }
+    },
+    "events": {
+      "title": "Recent activity",
+      "none": "No events yet. Activity will appear here as Aplexica syncs."
+    }
+  },
+  "agents": {
+    "title": "Agents",
+    "subtitle": "AI coding agents on this machine. Aplexica keeps their memory, skills and tools in sync.",
+    "columns": {
+      "name": "Agent",
+      "status": "Status",
+      "version": "Adapter",
+      "artifacts": "Artifacts",
+      "lastActivity": "Last activity"
+    },
+    "empty": "No adapters detected. Install a supported AI agent and Aplexica will pick it up automatically.",
+    "notInstalled": "Not installed",
+    "connected": "Connected",
+    "connectedSub": "{count} of {total} supported agents detected",
+    "notDetected": "Not detected",
+    "notDetectedSub": "Supported, but not found on this machine yet",
+    "artifacts": "artifacts",
+    "artifactsTip": "Memory, skills and tools from this agent currently in Aplexica’s canonical store.",
+    "adapterVersion": "Adapter",
+    "adapterVersionTip": "Version of the Aplexica adapter for this agent — not the agent’s own version.",
+    "agentVersion": "Agent",
+    "agentVersionTip": "The agent’s own installed version. Detection is coming soon — shown as — for now.",
+    "fanOut": {
+      "on": "Sync on",
+      "off": "Sync off",
+      "enableAll": "Enable sync for all",
+      "disableAll": "Disable sync for all",
+      "tip": "Cross-agent fan-out: when on, other agents' artifacts are replicated into this agent. Discovery + import happen regardless."
+    },
+    "installHint": "Install {name} and Aplexica will detect it automatically — no configuration needed.",
+    "detail": {
+      "back": "Back to all agents",
+      "namespaces": "Namespaces",
+      "recentEvents": "Recent events",
+      "noEvents": "No recent events for this agent.",
+      "noNamespaces": "This agent has no namespaces yet.",
+      "globalRoots": "Watched locations",
+      "noRoots": "No native storage detected for this agent.",
+      "nativeRoot": "Native"
+    }
+  },
+  "agentStatus": {
+    "active": {
+      "label": "Active",
+      "tip": "Syncing changes right now."
+    },
+    "idle": {
+      "label": "Idle",
+      "tip": "Connected and healthy — nothing is syncing at the moment."
+    },
+    "paused": {
+      "label": "Paused",
+      "tip": "Sync is paused for this agent. Resume from the dashboard."
+    },
+    "error": {
+      "label": "Attention",
+      "tip": "This agent hit an error or was quarantined. Check conflicts and events."
+    },
+    "notInstalled": {
+      "label": "Not installed",
+      "tip": "This agent isn’t installed on this machine. Install it and Aplexica detects it automatically."
+    }
+  },
+  "events": {
+    "title": "Event stream",
+    "subtitle": "Live activity from the daemon plus paginated backfill.",
+    "filterAll": "All",
+    "filterAgent": "Filter by agent",
+    "allAgents": "All agents",
+    "collapse": "Collapse repeats",
+    "collapseTip": "Fold repeated live pings and re-syncs into one row each instead of a row per event.",
+    "repeatCount": "Repeated {count} times",
+    "kinds": {
+      "daemon.state": "Daemon",
+      "agent.activity": "Agent",
+      "artifact.imported": "Imported",
+      "artifact.synced": "Synced",
+      "artifact.checkpoint": "Checkpoint",
+      "artifact.refused": "Refused",
+      "conflict.created": "Conflict created",
+      "conflict.resolved": "Conflict resolved",
+      "pending.added": "Pending added",
+      "pending.linked": "Pending linked",
+      "rule.fired": "Rule fired"
+    },
+    "artifactKinds": {
+      "memory": "memory",
+      "skill": "skill",
+      "tool": "tool",
+      "conversation": "conversation"
+    },
+    "scopes": {
+      "global": "Global",
+      "project": "Project",
+      "namespace": "Namespace"
+    },
+    "origins": {
+      "remote": "another device"
+    },
+    "labels": {
+      "activity": "Activity recorded",
+      "active": "{agent} active",
+      "artifact": "artifact",
+      "conversation": "conversation",
+      "kindAndName": "{kind} {name}",
+      "unknownAgent": "Aplexica",
+      "daemonState": "Daemon state changed",
+      "syncedTo": "{agent} synced {item} to {targets}",
+      "synced": "{agent} synced {item}",
+      "imported": "{agent} imported {item}",
+      "checkpointed": "Aplexica checkpointed {item}",
+      "refused": "Aplexica refused {item}"
+    },
+    "meta": {
+      "from": "From: {value}",
+      "reason": "Reason: {value}",
+      "to": "To: {value}",
+      "project": "Project: {value}",
+      "scope": "Scope: {value}",
+      "origin": "Origin: {value}"
+    },
+    "sources": {
+      "agentSession": "{agent} session history"
+    },
+    "reasons": {
+      "maxArtifactSize": "{size} is above the {limit} safety limit"
+    },
+    "live": "Live",
+    "loadMore": "Load older events",
+    "empty": "No events yet.",
+    "reconnecting": "Reconnecting…",
+    "disconnected": "Disconnected"
+  },
+  "rules": {
+    "title": "Routing rules",
+    "subtitle": "Decide which artifacts fan out to which agents.",
+    "add": "Add rule",
+    "empty": "No rules yet. Aplexica syncs nothing across agents until you add a rule — start from a preset or write your own.",
+    "cloudBadge": "Synced from cloud",
+    "cloudBadgeHint": "This rule is managed in the cloud portal and is read-only on this device.",
+    "columns": {
+      "name": "Name",
+      "match": "Matches",
+      "targets": "Routes to",
+      "effect": "Effect"
+    },
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "e.g. share-skills-with-codex",
+      "typesLabel": "Artifact types",
+      "typesPlaceholder": "memory, skill",
+      "typesHint": "Leave empty to match every artifact type.",
+      "matchTagsLabel": "Match tags",
+      "matchTagsPlaceholder": "Add a tag…",
+      "modeLabel": "Mode",
+      "modeLive": "Live",
+      "modeScheduled": "Scheduled",
+      "modeManual": "Manual",
+      "modeUnset": "Default (live)",
+      "scheduledIntervalSecondsLabel": "Scheduled-sync interval (seconds)",
+      "scheduledIntervalSecondsHint": "Default is 900 seconds, or 15 minutes.",
+      "agentsLabel": "Target agents",
+      "agentsPlaceholder": "claude-code, codex",
+      "agentsHint": "Leave empty for all installed agents. Pick the originating agent to route back to whichever agent created the artifact.",
+      "agentsOriginating": "Originating agent",
+      "syncOffDeviceLabel": "Allow syncing off this device",
+      "syncOffDeviceHint": "Turn off to keep matching artifacts local only (never sent to a relay or other device).",
+      "includeSecretsLabel": "Include secret values",
+      "includeSecretsHint": "Turn off to sync tool artifacts without their secret values.",
+      "tagsLabel": "Assign tags",
+      "tagsPlaceholder": "Add a tag…",
+      "submit": "Save rule",
+      "cancel": "Cancel"
+    },
+    "presets": {
+      "add": "Add from preset",
+      "title": "Add from preset",
+      "subtitle": "Opt into Aplexica's classic routing behavior. Each preset adds one rule (or, for the starter set, several) you can edit afterward.",
+      "loadError": "Could not load presets.",
+      "empty": "No presets available.",
+      "group": "Bundle",
+      "ruleCount": "{count} rules",
+      "addOne": "Add",
+      "added": "Preset added",
+      "addError": "Could not add preset",
+      "close": "Done"
+    },
+    "detail": {
+      "back": "Back to all rules",
+      "summary": "What this rule does",
+      "matchesLabel": "Matches",
+      "targetsLabel": "Routes to",
+      "effectLabel": "Effect",
+      "editTitle": "Edit rule",
+      "nameDisabledNote": "Renaming isn't supported here — delete this rule and create a new one to change its name.",
+      "advancedTitle": "Advanced matchers",
+      "advancedNote": "These predicates aren't editable from this form. They're preserved when you save and can be changed in ~/.aplexica/rules.toml.",
+      "save": "Save changes",
+      "delete": "Delete rule",
+      "deleteConfirm": "Delete this rule? It will not be recoverable.",
+      "cloudTitle": "Synced from the cloud",
+      "cloudNote": "This rule is managed in your cloud account and applies to this device read-only. Edit or remove it from the cloud portal's Routing rules page.",
+      "configTitle": "Configuration",
+      "configAllTypes": "All artifact types",
+      "configAllAgents": "All installed agents",
+      "configOn": "On",
+      "configOff": "Off"
+    },
+    "toast": {
+      "created": "Rule created",
+      "updated": "Rule updated",
+      "deleted": "Rule deleted",
+      "error": "Could not save rule"
+    }
+  },
+  "conflicts": {
+    "title": "Conflicts",
+    "subtitle": "Same artifact, divergent heads. Pick the winning side or merge manually.",
+    "empty": "No active conflicts.",
+    "emptyBody": "Nothing needs a conflict-resolution decision right now.",
+    "columns": {
+      "artifactId": "Artifact",
+      "kind": "Kind",
+      "heads": "Heads",
+      "actions": "Actions"
+    },
+    "detail": {
+      "back": "Back to conflicts",
+      "headA": "Head A",
+      "headB": "Head B",
+      "sourceAgent": "Source agent",
+      "eventId": "Event ID",
+      "contentSha256": "Content SHA-256",
+      "absTimestamp": "Timestamp",
+      "payloadPreview": "Raw payload preview",
+      "whatChanged": "What changed",
+      "analysisMissing": "Aplexica could not load the readable conflict analysis. Use the raw previews below to choose a side.",
+      "noVisibleDifference": "No visible turn or line difference was found. This usually means metadata, hidden context, timestamps, or formatting changed.",
+      "autoResolvable": "This conflict can be settled automatically by keeping Head {head}, the newest equivalent head.",
+      "noActionRequired": "No choice is needed. Aplexica removed this equivalent conflict from the active list.",
+      "highlightedDifferences": "Highlighted differences",
+      "readableSummary": "Readable summary",
+      "firstVisibleContent": "First visible content",
+      "unknownSource": "Unknown source",
+      "notPresent": "Not present",
+      "onlyInA": "Only in Head A",
+      "onlyInB": "Only in Head B",
+      "changed": "Changed",
+      "acceptA": "Keep Head A",
+      "acceptB": "Keep Head B",
+      "manual": "Write manual merge",
+      "manualBody": "Paste the merged content below.",
+      "submitManual": "Save manual merge",
+      "cancel": "Cancel"
+    },
+    "toast": {
+      "resolved": "Conflict resolved",
+      "error": "Could not resolve conflict"
+    }
+  },
+  "forking": {
+    "title": "Forking",
+    "subtitle": "Create alternate conversation branches and choose which branch each agent should materialize.",
+    "searchLabel": "Search conversations",
+    "searchPlaceholder": "Search by prompt, short description, agent, or artifact ID...",
+    "recentTitle": "Recent conversations",
+    "resultsTitle": "Search results",
+    "selected": "Selected conversation",
+    "selectTitle": "Select a conversation",
+    "selectBody": "Branch controls appear here after you choose a conversation from the list.",
+    "loadError": "Could not load conversations.",
+    "noConversations": "No conversations found.",
+    "noConversationsBody": "Aplexica has not imported any conversation artifacts yet.",
+    "noResults": "No matching conversations.",
+    "noResultsBody": "Try a word from the prompt, an agent name, or the artifact ID.",
+    "meta": {
+      "turns": "{count} turns",
+      "branches": "{count} branches"
+    }
+  },
+  "conversationBranches": {
+    "title": "Conversation branches",
+    "subtitle": "Fork from an existing branch head, or switch an agent to a saved branch.",
+    "empty": "No branches found.",
+    "loadError": "Could not load conversation branches.",
+    "columns": {
+      "branch": "Branch",
+      "events": "Events",
+      "lastEvent": "Last event",
+      "state": "State",
+      "materialized": "Materialized in"
+    },
+    "state": {
+      "active": "Active",
+      "archived": "Archived",
+      "merged": "Merged into {branch}"
+    },
+    "materializedEmpty": "Not materialized",
+    "noAgents": "No agents available",
+    "main": "main",
+    "branchHead": "{branch} head",
+    "branchSource": "branch",
+    "fork": {
+      "title": "Fork",
+      "description": "Create a new branch from the selected point, then open that new branch in the target agent.",
+      "from": "From",
+      "agent": "To agent",
+      "branch": "Branch name",
+      "branchPlaceholder": "auto-generated",
+      "rationale": "Rationale",
+      "rationalePlaceholder": "Optional note",
+      "submit": "Create fork"
+    },
+    "checkout": {
+      "title": "Check out",
+      "description": "Switch an agent to an existing branch without creating another branch.",
+      "branch": "Branch",
+      "agent": "Agent",
+      "submit": "Check out branch"
+    },
+    "sourceLabel": "{label} · {agent}",
+    "toast": {
+      "forked": "Forked {branch} for {agent}",
+      "checkedOut": "{agent} is now on {branch}",
+      "warning": "{message}",
+      "error": "Branch action failed"
+    }
+  },
+  "backups": {
+    "title": "Backups",
+    "subtitle": "Protect native agent state locally or as client-encrypted cloud backups.",
+    "empty": "No native backups yet.",
+    "emptyBody": "Create a manual backup or enable a schedule to start the history.",
+    "noSnapshots": "No restorable snapshots found.",
+    "noSnapshotsBody": "Only reversible restore undo points are present.",
+    "history": {
+      "title": "History",
+      "count": "{count} records"
+    },
+    "snapshot": {
+      "safety": "Safety snapshot",
+      "manual": "Manual snapshot",
+      "scheduled": "Scheduled snapshot",
+      "undo": "Restore undo point",
+      "generic": "Native snapshot"
+    },
+    "metrics": {
+      "protected": "Protected agents",
+      "protectedDetail": "Agents with restorable native state",
+      "cloud": "Cloud backup",
+      "history": "History",
+      "historyDetail": "Local / cloud records",
+      "storage": "Backup size",
+      "storageDetail": "Visible backup history"
+    },
+    "cloud": {
+      "available": "Available",
+      "unavailable": "Unavailable",
+      "localOnly": "Local backups only"
+    },
+    "destination": {
+      "local": "Local",
+      "cloud": "Cloud",
+      "cloudEncrypted": "Cloud encrypted",
+      "cloudReady": "Encrypted before upload; restore requires this local key.",
+      "cloudUnavailable": "Connect to Aplexica Cloud to enable encrypted cloud backups."
+    },
+    "create": {
+      "title": "Back up now",
+      "all": "Back up all",
+      "selected": "Back up selection",
+      "allSelected": "No selection means all agents.",
+      "countSelected": "{count} selected",
+      "running": "Backing up...",
+      "canceling": "Canceling...",
+      "cancel": "Cancel",
+      "allAgents": "all agents",
+      "started": "Backup started.",
+      "startedCloud": "Encrypted cloud backup started.",
+      "cancelled": "Backup canceled.",
+      "done": "Backup created.",
+      "doneCloud": "Encrypted cloud backup uploaded.",
+      "cancelError": "Could not cancel backup.",
+      "error": "Could not create backup."
+    },
+    "jobs": {
+      "runningTitle": "Backup in progress",
+      "cancelingTitle": "Canceling backup",
+      "runningBody": "{destination} backup for {agents} started {started}."
+    },
+    "safety": {
+      "title": "Safety status",
+      "empty": "No agents with backup roots.",
+      "emptyBody": "Detected agents with native state will appear here.",
+      "roots": "{count} protected roots",
+      "backup": "Back up",
+      "override": "Continue without backup",
+      "overrideDone": "{agent} can continue without a backup.",
+      "overrideError": "Could not override the backup blocker.",
+      "state": {
+        "protected": "Protected",
+        "backup_required": "Backup required",
+        "blocked": "Blocked",
+        "overridden": "Overridden"
+      }
+    },
+    "schedule": {
+      "title": "Schedule",
+      "enabled": "Enabled",
+      "every": "Every minutes",
+      "custom": "Custom minutes",
+      "save": "Save schedule",
+      "saving": "Saving...",
+      "done": "Schedule saved.",
+      "error": "Could not save schedule.",
+      "next": "Next run: {time}",
+      "preset": {
+        "hourly": "Hourly",
+        "sixHours": "Every 6h",
+        "twelveHours": "Every 12h",
+        "daily": "Daily",
+        "weekly": "Weekly"
+      }
+    },
+    "retention": {
+      "title": "History limits",
+      "body": "Manual and scheduled backup history is kept per agent. Safety snapshots and restore undo points are preserved separately.",
+      "keep": "Keep",
+      "backups": "backups",
+      "agentLabel": "Backups to keep for {agent}",
+      "save": "Save limits",
+      "saving": "Saving...",
+      "done": "History limits saved.",
+      "error": "Could not save history limits."
+    },
+    "meta": {
+      "size": "{size}",
+      "files": "{count} files",
+      "agents": "{count} agents"
+    },
+    "filters": {
+      "from": "From",
+      "to": "To",
+      "agent": "Agent",
+      "type": "Type",
+      "location": "Location",
+      "allAgents": "All agents",
+      "allTypes": "All types",
+      "allLocations": "All locations",
+      "reset": "Reset"
+    },
+    "table": {
+      "agent": "Agent",
+      "status": "Status",
+      "roots": "Roots",
+      "lastBackup": "Last backup",
+      "created": "Created",
+      "location": "Location",
+      "type": "Type",
+      "agents": "Agents",
+      "size": "Size",
+      "files": "Files",
+      "device": "Device",
+      "actions": "Actions",
+      "thisDevice": "This device"
+    },
+    "restore": "Restore",
+    "delete": "Delete",
+    "restoreAll": "Restore all",
+    "restoreSafetyAll": "Restore all to pre-Aplexica state",
+    "restoreAgent": "Restore {agent}",
+    "deleteConfirm": {
+      "title": "Delete backup",
+      "body": "This will permanently delete the {location} {type}.",
+      "localWarning": "This removes the local snapshot directory. If it is the current safety snapshot for an agent, that agent will require a new backup before guarded sync can continue.",
+      "cloudWarning": "This removes the encrypted cloud backup object and its metadata. The cloud cannot recover it after deletion.",
+      "phrase": "delete",
+      "prompt": "Type \"{phrase}\" to confirm.",
+      "inputLabel": "Confirmation phrase",
+      "confirm": "Delete",
+      "deleting": "Deleting…",
+      "doneLocal": "Local backup deleted.",
+      "doneCloud": "Cloud backup deleted.",
+      "error": "Could not delete the backup."
+    },
+    "preRestore": {
+      "title": "Reversible undo points",
+      "subtitle": "Snapshots Aplexica took automatically before each restore, so any restore can itself be undone."
+    },
+    "confirm": {
+      "title": "Restore backup",
+      "safetyTitle": "Restore to pre-Aplexica state",
+      "allAgents": "all agents",
+      "body": "This overwrites the live native state of {scope} with the files in this snapshot.",
+      "warning": "This is destructive: current native agent files will be replaced. Aplexica first takes a reversible snapshot of the current state, but the active agents' working data will change.",
+      "cloudWarning": "This encrypted cloud backup will be downloaded and decrypted locally before restore. The cloud cannot decrypt it; this device's local key is required.",
+      "phrase": "restore",
+      "prompt": "Type \"{phrase}\" to confirm.",
+      "inputLabel": "Confirmation phrase",
+      "confirm": "Restore",
+      "restoring": "Restoring…",
+      "done": "Restored {count} files.",
+      "doneSafety": "Restored {count} files to pre-Aplexica state.",
+      "partial": "Restore finished with errors: {failed} of {total} files failed.",
+      "error": "Could not restore the snapshot."
+    }
+  },
+  "pending": {
+    "title": "Pending projects",
+    "subtitle": "Approve discovered folders, or link recognized imported projects to a local folder.",
+    "empty": "No pending projects. Folders your agents work in will show up here for approval.",
+    "columns": {
+      "path": "Project",
+      "agents": "Used by",
+      "lastActive": "Last active",
+      "type": "Source",
+      "actions": "Actions"
+    },
+    "source": {
+      "discovered": "Discovered",
+      "discoveredTip": "Aplexica found one or more agents working in this folder.",
+      "artifact": "From artifacts",
+      "artifactTip": "Surfaced from imported artifacts that preserved a local folder path.",
+      "pathlessArtifact": "Needs local path",
+      "pathlessArtifactTip": "Aplexica found project-scoped artifacts, but they did not include a local folder path."
+    },
+    "git": {
+      "repo": "Git repo",
+      "notRepo": "Not a repo"
+    },
+    "projectId": "Project ID",
+    "noLocalPath": "No local folder known",
+    "noAgents": "—",
+    "approve": "Approve…",
+    "link": "Link to local path…",
+    "linkFolder": "Link folder…",
+    "deny": "Dismiss",
+    "denied": {
+      "title": "Dismissed",
+      "subtitle": "Projects you dismissed. They won't reappear in the pending list unless you restore them.",
+      "restore": "Restore"
+    },
+    "suggestions": {
+      "title": "Agent suggestions",
+      "subtitle": "An agent started working in a project it isn't syncing yet. Add it, or dismiss the suggestion.",
+      "row": "{agents} started using {path}",
+      "add": "Add {agents}",
+      "dismiss": "Dismiss"
+    },
+    "approveDialog": {
+      "title": "Approve project",
+      "pathLabel": "Folder",
+      "scopeLabel": "Scope",
+      "scopeHint": "Folder-local keeps rules scoped to this folder. Global applies your global routing to it.",
+      "scopeLocal": "Folder-local",
+      "scopeGlobal": "Global",
+      "agentsLabel": "Agents that sync here",
+      "agentsHint": "Only the selected agents receive this folder's context. Pre-filled from the agents seen running here. Selecting every agent means all agents (including ones installed later).",
+      "submit": "Approve",
+      "cancel": "Cancel"
+    },
+    "linkDialog": {
+      "title": "Link project ID {id}",
+      "help": "Choose the existing local folder that belongs to this project ID. If you do not recognize it, dismiss it instead.",
+      "pathLabel": "Local path",
+      "pathPlaceholder": "~/code/project-folder",
+      "submit": "Link",
+      "cancel": "Cancel"
+    },
+    "toast": {
+      "approved": "Project approved",
+      "linked": "Project linked",
+      "denied": "Project dismissed",
+      "restored": "Project restored to pending",
+      "agentAdded": "Agent added to the project",
+      "suggestionDismissed": "Suggestion dismissed",
+      "error": "Could not approve project"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Folders Aplexica is replicating context for, with the scope and agents each is registered under.",
+    "empty": "No projects registered yet. Approve a pending folder or add one manually.",
+    "addFolder": "Add folder…",
+    "columns": {
+      "path": "Folder",
+      "scope": "Scope",
+      "agents": "Agents",
+      "actions": "Actions"
+    },
+    "scope": {
+      "local": "Folder-local",
+      "global": "Global"
+    },
+    "allAgents": "All agents",
+    "editDialog": {
+      "scopeLabel": "Scope"
+    },
+    "agentsEdit": {
+      "label": "Agents that sync here",
+      "hint": "Only the selected agents receive this folder's context. Selecting every agent means all agents (including ones installed later).",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "remove": {
+      "button": "Remove",
+      "confirm": "Remove and re-discover?",
+      "yes": "Remove",
+      "no": "Cancel"
+    },
+    "memory": {
+      "view": "Memory",
+      "hide": "Hide memory",
+      "title": "Effective memory",
+      "subtitle": "What each agent actually holds for this folder. Layouts differ (Claude splits into ~/.claude/.../memory), but the content should match.",
+      "empty": "No project memory synced for this folder yet.",
+      "emptyFile": "(empty)"
+    },
+    "addDialog": {
+      "title": "Add a folder",
+      "pathLabel": "Folder path",
+      "pathPlaceholder": "~/code/my-project",
+      "scopeLabel": "Scope",
+      "scopeLocal": "Folder-local",
+      "scopeGlobal": "Global",
+      "submit": "Add folder",
+      "cancel": "Cancel"
+    },
+    "toast": {
+      "added": "Folder added",
+      "agentsSaved": "Agents updated",
+      "saved": "Project updated",
+      "removed": "Project removed — it can re-appear in Pending",
+      "removeError": "Could not remove project",
+      "error": "Could not add folder"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Safe-to-edit knobs. For the rest, open ~/.aplexica/config.toml.",
+    "openRawConfig": "Open raw config…",
+    "rawPathClipboard": "Path copied to clipboard",
+    "form": {
+      "logLevelLabel": "Log level",
+      "logLevels": {
+        "trace": "trace",
+        "debug": "debug",
+        "info": "info",
+        "warn": "warn",
+        "error": "error"
+      },
+      "hermesWatchIntervalLabel": "Hermes watch interval",
+      "hermesWatchIntervalHelp": "How often Aplexica polls Hermes state.db for new or changed conversation sessions. Use a Go duration such as 5s, 30s, or 1m.",
+      "submit": "Save",
+      "saving": "Saving…"
+    },
+    "toast": {
+      "saved": "Settings saved",
+      "error": "Could not save settings"
+    }
+  },
+  "transport": {
+    "title": "Transport",
+    "subtitle": "How Aplexica reaches out beyond this machine.",
+    "mode": "Mode",
+    "modes": {
+      "local": "Local only",
+      "local-only": "Local only",
+      "localOnly": "Local only",
+      "byo-relay": "Bring-your-own relay",
+      "hosted": "Aplexica Cloud"
+    },
+    "available": "Available transports",
+    "localOnlyNotice": "This daemon currently exposes local-only transport. Remote relay controls are unavailable in this build.",
+    "switchLocal": "Switch to local-only",
+    "byo": {
+      "title": "Bring-your-own relay",
+      "available": "Configure a self-hosted relay endpoint.",
+      "unavailable": "BYO relay is not available from this daemon. Use a build that advertises the byo-relay transport before configuring it here.",
+      "urlLabel": "Broker URL",
+      "urlPlaceholder": "mqtts://emqx.example.com:8883",
+      "certLabel": "Client certificate path",
+      "keyLabel": "Client key path",
+      "caLabel": "CA certificate path",
+      "namespacesLabel": "Namespaces (comma-separated, optional)",
+      "submit": "Save BYO relay",
+      "unavailableSubmit": "BYO unavailable",
+      "comingSoon": "BYO relay configuration is not available in this build."
+    },
+    "toast": {
+      "switched": "Transport switched to local-only",
+      "byoDeferred": "BYO relay is not available in this build.",
+      "byoUnavailable": "BYO relay is not available in this daemon build.",
+      "error": "Could not update transport"
+    }
+  },
+  "help": {
+    "title": "Help",
+    "subtitle": "Pointers to the docs, source, and support.",
+    "items": {
+      "docsTitle": "Documentation",
+      "docsBody": "Read the full guide on www.aplexica.com/docs.",
+      "sourceTitle": "Source code",
+      "sourceBody": "Both the daemon and this UI are AGPL-3.0. Browse them on GitHub.",
+      "securityTitle": "Report a vulnerability",
+      "securityBody": "Email security@aplexica.com or read SECURITY.md.",
+      "trayTitle": "Reopen from the tray",
+      "trayBody": "If you closed this tab, click \"Open Aplexica\" in the system tray to relaunch."
+    }
+  },
+  "onboarding": {
+    "title": "Welcome to Aplexica",
+    "subtitle": "We'll get you set up in a few minutes.",
+    "step": "Step {current} of {total}",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "skip": "Skip onboarding",
+    "steps": {
+      "install-daemon": {
+        "title": "Install the daemon",
+        "body": "The aplexicad daemon is what makes everything work. You're already connected — this step is complete."
+      },
+      "detect-agents": {
+        "title": "Connect your agents",
+        "body": "Install one of the supported agents (Claude Code, Codex, Hermes, OpenClaw, Kilo). Aplexica will detect them automatically.",
+        "pending": "Waiting for the first adapter to appear…",
+        "complete": "Adapters detected."
+      },
+      "first-sync": {
+        "title": "Wait for your first sync",
+        "body": "Use any of your agents normally. Aplexica will replicate everything it produces.",
+        "pending": "Waiting for the first sync event…",
+        "complete": "First sync recorded."
+      },
+      "done": {
+        "title": "You're set up",
+        "body": "Head to the dashboard to see your daemon, agents, and a live event feed.",
+        "goDashboard": "Go to dashboard"
+      }
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "now": "now",
+    "never": "Never",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "unknown": "—",
+    "viewAll": "View all"
+  }
+}

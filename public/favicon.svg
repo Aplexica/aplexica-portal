@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- True-black tile so the mark reads in browser tabs on any theme -->
+  <rect width="32" height="32" rx="6" fill="#000000"/>
+  <!-- Tilde-A: letter A in cream with a coral tilde for a crossbar.
+       References ~/.aplexica — the path is in the letter. Scaled
+       into the 32px tile with breathing room. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 26 L16 5 L26 26"
+          stroke="#EFFFEB" stroke-width="3"/>
+    <path d="M11 18 Q13.5 15 16 18 T21 18"
+          stroke="#FF6044" stroke-width="2.6"/>
+  </g>
+</svg>

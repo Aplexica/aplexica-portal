@@ -1,0 +1,13 @@
+Aplexica Portal
+Copyright (C) 2026 Aplexica, Inc.
+
+This project is licensed under AGPL-3.0-or-later. See LICENSE.
+
+The built portal distribution includes third-party software. Its legal/
+directory contains this NOTICE, the project LICENSE, and a deterministic
+THIRD_PARTY_NOTICES.txt with the applicable license and copyright texts for
+every package in the exact locked production dependency graph. legal/manifest.json
+records the package versions and SHA-256 digests used to verify completeness.
+
+Aplexica and the Aplexica logo are trademarks of Aplexica, Inc. Third-party
+names and marks remain the property of their respective owners.

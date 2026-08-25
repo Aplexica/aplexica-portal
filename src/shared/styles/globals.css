@@ -1,0 +1,220 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+/*
+ * Self-hosted variable fonts (CSP-safe: served same-origin by Vite, so they
+ * satisfy the local SPA's `default-src 'self'` policy — no Google Fonts CDN).
+ * Geist for UI, Geist Mono for machine values (versions, PIDs, paths, counts).
+ */
+@import '@fontsource-variable/geist/index.css';
+@import '@fontsource-variable/geist-mono/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Aplexica brand palette — mirrors the marketing site (Aplexica_Website,
+ * src/styles/tokens.css): true-black canvas, warm olive-tinted neutrals,
+ * cream text, and a coral accent with BLACK foreground ("Vista-style").
+ * Values are RGB triplets consumed as `rgb(var(--token) / <alpha>)`.
+ *
+ * Status hues (success/idle/warning/danger/neutral) are functional — the
+ * marketing site has none — tuned to sit on the warm coral brand while
+ * staying clearly distinguishable from the accent.
+ *
+ * Brand-dark only (the marketing site has no light theme), so no
+ * prefers-color-scheme override.
+ */
+:root {
+  /* Canvas + surfaces */
+  --color-bg: 0 0 0; /* true black */
+  --color-surface: 17 18 16; /* faint warm rise — panels/cards */
+  --color-surface-raised: 28 30 27; /* deeper raised — tiles */
+  --color-text: 239 255 235; /* cream-tinted off-white */
+  --color-muted: 48 53 46; /* warm olive — chips + hover */
+  --color-muted-text: 184 200 181; /* dimmer warm white */
+  --color-faint-text: 130 142 128; /* soft warm gray */
+  --color-border: 40 45 38; /* warm olive hairline */
+  --color-border-strong: 72 77 71; /* warm olive-gray */
+
+  /* Brand accent — coral, black foreground */
+  --color-accent: 255 96 68;
+  --color-accent-strong: 235 78 50;
+  --color-accent-text: 0 0 0;
+  --color-ring: 255 96 68;
+
+  /* Semantic status hues (functional; harmonized warm, distinct from coral) */
+  --color-success: 74 222 128; /* active / synced — green */
+  --color-idle: 96 170 190; /* connected, quiet — calm teal-blue */
+  --color-warning: 250 180 70; /* paused — warm amber */
+  --color-danger: 244 63 94; /* conflict / error — rose (distinct from coral) */
+  --color-neutral: 130 142 128; /* not installed — warm gray */
+  --color-info: 125 160 200; /* informational — soft blue */
+
+  --color-destructive: 244 63 94;
+
+  --radius: 0.7rem;
+  --radius-sm: 0.45rem;
+  --radius-lg: 1rem;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.6);
+  --shadow-md: 0 6px 22px -6px rgb(0 0 0 / 0.75), 0 2px 6px -2px rgb(0 0 0 / 0.6);
+  --shadow-glow: 0 0 0 1px rgb(var(--color-accent) / 0.3), 0 8px 30px -8px rgb(var(--color-accent) / 0.3);
+
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv11', 'ss01';
+  /*
+   * Atmosphere on true black: a warm coral glow top-left + a faint second
+   * coral wash top-right + a subtle warm dotted grid. Fixed so it doesn't
+   * scroll with content.
+   */
+  background-image:
+    radial-gradient(60rem 40rem at 0% -10%, rgb(var(--color-accent) / 0.06), transparent 60%),
+    radial-gradient(50rem 40rem at 100% 0%, rgb(var(--color-accent-strong) / 0.04), transparent 55%),
+    radial-gradient(rgb(var(--color-border-strong) / 0.3) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 22px 22px;
+  background-attachment: fixed;
+}
+
+/* Mono for machine values — versions, PIDs, paths, hashes, counts. */
+.font-mono,
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-feature-settings: 'zero', 'ss01';
+}
+
+/* Custom scrollbars that match the surface, not the OS default. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-border-strong)) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border-strong));
+  border: 2px solid transparent;
+  background-clip: content-box;
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-muted-text) / 0.5);
+  background-clip: content-box;
+}
+
+/* Keyframes */
+@keyframes apx-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+@keyframes apx-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+@keyframes apx-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes apx-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes apx-backup-sweep {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.apx-backup-button-active {
+  isolation: isolate;
+  box-shadow: 0 0 0 1px rgb(var(--color-accent) / 0.25), 0 0 18px rgb(var(--color-accent) / 0.18);
+}
+.apx-backup-button-active::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(110deg, transparent 0%, rgb(255 255 255 / 0.22) 45%, transparent 62%);
+  animation: apx-backup-sweep 1.15s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.apx-backup-button-active-subtle::before {
+  background: linear-gradient(110deg, transparent 0%, rgb(var(--color-accent) / 0.24) 45%, transparent 62%);
+}
+.apx-backup-activity-ring {
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 9999px;
+  animation: apx-spin 0.8s linear infinite;
+}
+
+/* Staggered page-load reveal — apply .apx-rise to a container's children. */
+.apx-rise > * {
+  animation: apx-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.apx-rise > *:nth-child(1) { animation-delay: 0.02s; }
+.apx-rise > *:nth-child(2) { animation-delay: 0.07s; }
+.apx-rise > *:nth-child(3) { animation-delay: 0.12s; }
+.apx-rise > *:nth-child(4) { animation-delay: 0.17s; }
+.apx-rise > *:nth-child(5) { animation-delay: 0.22s; }
+.apx-rise > *:nth-child(6) { animation-delay: 0.27s; }
+
+/* Focus-visible ring consistent everywhere. */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-ring));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

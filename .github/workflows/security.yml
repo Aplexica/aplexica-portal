@@ -1,0 +1,26 @@
+name: Security
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "53 7 * * 3"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  policy-and-audit:
+    # Fleet only when private + canonical + not a fork (including the
+    # Wednesday schedule). Public, forks, or any other repository →
+    # GitHub-hosted. Backstop: the org runner group refuses public-repo
+    # jobs even if a fork edits this expression.
+    runs-on: ${{ (github.repository == 'Aplexica/aplexica-portal' && github.event.repository.fork == false && github.event.repository.visibility == 'private') && 'aplexica-linux' || 'ubuntu-latest' }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - run: node tools/actionpin.mjs
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm audit --prod --audit-level high --ignore-registry-errors
